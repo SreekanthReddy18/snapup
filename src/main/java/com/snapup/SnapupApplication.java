@@ -1,4 +1,4 @@
-package com.snapup.snapup;
+package com.snapup;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
