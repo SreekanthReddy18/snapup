@@ -3,6 +3,8 @@ package com.snapup.controller;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,11 +22,11 @@ public class UserController {
 	IUsersService userService;
 	
 	@RequestMapping(value="userbyid/{id}", method=RequestMethod.GET)
-	public User getUserById(@PathVariable int id) {
+	public ResponseEntity<User> getUserById(@PathVariable int id) {
 		
 		System.out.println("**********id**************"+id);
-		
-		return userService.getUserById(id);
+		User user = userService.getUserById(id);
+		return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
 	
 	

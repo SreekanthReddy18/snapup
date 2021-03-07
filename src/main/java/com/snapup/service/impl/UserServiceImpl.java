@@ -10,19 +10,20 @@ import com.snapup.service.IUsersService;
 @Service
 public class UserServiceImpl implements IUsersService {
 
-	@Override
-	public User getUserById(int id) {
-		
+	static Map<Integer, User> userMap = new HashMap<>();
+	
+	static {
 		User user1 = new User(1, "Swaroopa", "hyd");
 		User user2 = new User(2,"Chandana","ongole");
 		
-		Map<Integer, User> userMap = new HashMap<>();
+		
 		
 		userMap.put(user1.getId(), user1);
 		userMap.put(user2.getId(), user2);
-		
-		
-		
+	}
+	
+	@Override
+	public User getUserById(int id) {
 		
 		return userMap.get(id);
 	}
