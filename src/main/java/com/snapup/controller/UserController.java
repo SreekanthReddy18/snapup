@@ -24,7 +24,7 @@ public class UserController {
 	@RequestMapping(value="userbyid/{id}", method=RequestMethod.GET)
 	public ResponseEntity<User> getUserById(@PathVariable int id) {
 		
-		System.out.println("**********id************"+id);
+		System.out.println("**********id********"+id);
 		User user = userService.getUserById(id);
 		return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
